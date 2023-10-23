@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+if [ -w /etc/hosts ]
+then
+    echo "0.0.0.0\t$1" >> /etc/hosts
+    echo "0.0.0.0\twww.$1" >> /etc/hosts
+
+    dscacheutil -flushcache
+else
+    echo 'Run command with sudo'
+fi
+
